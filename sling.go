@@ -6,8 +6,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-
-	goquery "github.com/google/go-querystring/query"
 )
 
 const (
@@ -309,7 +307,7 @@ func addQueryStructs(reqURL *url.URL, queryStructs []interface{}) error {
 	}
 	// encodes query structs into a url.Values map and merges maps
 	for _, queryStruct := range queryStructs {
-		queryValues, err := goquery.Values(queryStruct)
+		queryValues, err := Values(queryStruct)
 		if err != nil {
 			return err
 		}
